@@ -1,0 +1,22 @@
+[package]
+name = "workspacer"
+version = "0.1.0"
+edition = "2021"
+description ="Manage your workspace with ease"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.4.11", features = ["cargo","derive","string"] }
+toml_edit = "0.21.0"
+
+[package.metadata.bundle]
+name = "Workspacer" # The name of your application
+identifier = "com.codeitlikemiley.workspacer" # The bundle identifier of your application
+copyright = "Copyright (c) codeitlikemiley 2023. All rights reserved."
+category = "Developer Tool"
+short_description = "A Workspace CLI for managing GRPC Server Workspace"
+long_description = "A Workspace CLI for managing GRPC Server Workspace"
+version = "0.1.0" # Version of your application
+osx_url_schemes = ["com.codeitlikemiley.workspacer"]
+script = "scripts/post-install" # Path to your postinstall script
