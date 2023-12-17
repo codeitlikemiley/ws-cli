@@ -7,12 +7,11 @@ on:
       - 'v*'
 
 jobs:
-  build_and_release:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-
     steps:
       - uses: actions/checkout@v2
 
@@ -26,25 +25,9 @@ jobs:
       - name: Build
         run: cargo build --verbose --release
 
-      - name: Create Release
-        id: create_release
-        if: startsWith(github.ref, 'refs/tags/v') && matrix.os == 'ubuntu-latest'
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Artifact
-        uses: actions/upload-release-asset@v1
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./target/release/workspacer
-          asset_name: workspacer-${{ matrix.os }}${{ matrix.os == 'windows-latest' && '.exe' || '' }}
-          asset_content_type: application/octet-stream
+          name: workspacer-${{ matrix.os }}
+          path: |
+            ./target/release/workspacer${{ matrix.os == 'windows-latest' && '.exe' || '' }}
