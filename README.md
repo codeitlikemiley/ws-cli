@@ -6,28 +6,42 @@ Mainly used to Initialize a new Workpspace for [Server Template](https://github.
 
 ## Installation
 
-- If you are on Mac OS , you can Download and Install [workspacer.pkg](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
+1. You can Download and Install [workspacer](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
 
-Note: you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
+Note: on MacOS you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
+
+Note: on Windows you might need to Add the command to ENV PATH
 
 
-- If you on other Platform you can build it from source
+2. Build it from source
+
+
+Clone
+
 ```sh
 git clone htps://github.com/codeitlikemiley/workspacer.git
 cd workspacer
-cargo build --release
 ```
 
-- On any Linux or Unix based system you can install it with the following commands:
+**For MacOS**
+```sh
+./provision.sh
+
+```
+
+**For Linux**
 
 ```sh
+cargo build --release
 mv ./target/release/workspacer /usr/local/bin/workspacer
 chmod +x /usr/local/bin/workspacer
 ```
 
-- On windows , open terminal
+**For Windows**
 
 ```powershell
+cargo build --release
+
 # Replace 'YourUsername' with your actual username
 Move-Item .\target\release\workspacer.exe C:\Users\YourUsername\bin\workspacer.exe
 
