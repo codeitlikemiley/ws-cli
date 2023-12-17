@@ -8,6 +8,8 @@ Mainly used to Initialize a new Workpspace for [Server Template](https://github.
 
 - If you are on Mac OS , you can Download and Install [workspacer.pkg](./workspacer.pkg)
 
+Note: you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
+
 
 - If you on other Platform you can build it from source
 ```sh
