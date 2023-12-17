@@ -6,7 +6,7 @@ Mainly used to Initialize a new Workpspace for [Server Template](https://github.
 
 ## Installation
 
-- If you are on Mac OS , you can Download and Install [workspacer.pkg](./workspacer.pkg)
+- If you are on Mac OS , you can Download and Install [workspacer.pkg](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
 
 Note: you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
 
