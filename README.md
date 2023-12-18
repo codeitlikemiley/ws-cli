@@ -14,6 +14,14 @@ Note: on MacOS you might need to go to System Preferences > Security & Privacy >
 
 Note: on Windows you might need to Add the command to ENV PATH
 
+or Install via Cargo
+
+```sh
+cargo install ws-cli
+```
+
+Note: if you install via cargo , the command you will use is `ws-cli` instead of `ws`
+
 
 2. Build it from source
 
