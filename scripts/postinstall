@@ -12,10 +12,10 @@ if [ ! -d "$USER_HOME/.local/bin" ]; then
 fi
 
 # delete the old symlink if it exists
-if [ -L "$USER_HOME/.local/bin/workspacer" ]; then
-    rm "$USER_HOME/.local/bin/workspacer"
+if [ -L "$USER_HOME/.local/bin/ws" ]; then
+    rm "$USER_HOME/.local/bin/ws"
 fi
 
 
 # Create the symlink in ~/.local/bin
-ln -s "/Applications/Workspacer.app/Contents/MacOS/workspacer" "$USER_HOME/.local/bin/workspacer"
+ln -s "/Applications/ws.app/Contents/MacOS/ws" "$USER_HOME/.local/bin/ws"

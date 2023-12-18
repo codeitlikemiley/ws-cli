@@ -2,13 +2,13 @@
 
 [![Release](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml)
 
-Note: This is an additional tooling to help you be prodctive building GRPC Server with Rust
+Note: This is an additional tooling to help you be productive building GRPC Server with Rust
 
 Mainly used to Initialize a new Workpspace for [Server Template](https://github.com/codeitlikemiley/server_template) and add Service with [Service Template](https://github.com/codeitlikemiley/service_template)
 
 ## Installation
 
-1. You can Download and Install [workspacer](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
+1. You can Download and Install [workspacer cli](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
 
 Note: on MacOS you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
 
@@ -21,8 +21,8 @@ Note: on Windows you might need to Add the command to ENV PATH
 Clone
 
 ```sh
-git clone htps://github.com/codeitlikemiley/workspacer.git
-cd workspacer
+git clone htps://github.com/codeitlikemiley/workspacer.git ws
+cd ws
 ```
 
 **For MacOS**
@@ -35,8 +35,8 @@ cd workspacer
 
 ```sh
 cargo build --release
-mv ./target/release/workspacer /usr/local/bin/workspacer
-chmod +x /usr/local/bin/workspacer
+mv ./target/release/ws /usr/local/bin/ws
+chmod +x /usr/local/bin/ws
 ```
 
 **For Windows**
@@ -45,7 +45,7 @@ chmod +x /usr/local/bin/workspacer
 cargo build --release
 
 # Replace 'YourUsername' with your actual username
-Move-Item .\target\release\workspacer.exe C:\Users\YourUsername\bin\workspacer.exe
+Move-Item .\target\release\ws.exe C:\Users\YourUsername\bin\ws.exe
 
 # Again, replace 'YourUsername' with your actual username
 $env:Path += ";C:\Users\YourUsername\bin"
@@ -58,7 +58,7 @@ $env:Path += ";C:\Users\YourUsername\bin"
 ```sh
 mkdir workspace
 cd workspace
-workspacer init
+ws init
 ```
 
 2. Create Server Template
@@ -72,7 +72,7 @@ cargo generate --git codeitlikemiley/server_template --name server
 
 ```sh
 mkdir services
-workspacer add auth
+ws add auth
 cd services
 cargo generate --git codeitlikemiley/services_template --name auth
 ```
@@ -80,11 +80,11 @@ cargo generate --git codeitlikemiley/services_template --name auth
 > CLI Example Usage
 
 ```sh
-workspacer
+ws
 
 Manage workspace for GRPC services
 
-Usage: workspacer <COMMAND>
+Usage: ws <COMMAND>
 
 Commands:
   init    Initializes a new workspace

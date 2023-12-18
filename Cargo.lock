@@ -270,7 +270,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "workspacer"
+name = "ws"
 version = "0.1.0"
 dependencies = [
  "clap",
