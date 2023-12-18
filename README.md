@@ -1,6 +1,6 @@
 # A CLI tool (ws-cli) to Manage GRPC Services Workspace
 
-[![Release](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml)
+[![Release](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml)
 
 Note: This is an additional tooling to help you be productive building GRPC Server with Rust
 
@@ -8,7 +8,7 @@ Mainly used to Initialize a new Workpspace for [Server Template](https://github.
 
 ## Installation
 
-1. You can Download and Install [workspacer cli](https://github.com/codeitlikemiley/workspacer/releases) on Releases Page
+1. You can Download and Install [workspacer cli](https://github.com/codeitlikemiley/ws-cli/releases) on Releases Page
 
 Note: on MacOS you might need to go to System Preferences > Security & Privacy > General and click Open Anyway to install it
 
@@ -20,6 +20,7 @@ or Install via Cargo
 cargo install ws-cli
 ```
 
+Note: if you dont like typing ws-cli you can alias it to ws
 
 2. Build it from source
 
@@ -27,22 +28,22 @@ cargo install ws-cli
 Clone
 
 ```sh
-git clone htps://github.com/codeitlikemiley/workspacer.git ws-cli
-cd ws-cli
+git clone htps://github.com/codeitlikemiley/ws-cli.git ws
+cd ws
 ```
 
 **For MacOS**
 ```sh
 ./provision.sh
-
+# you can use ws command instead of ws-cli (longer)
 ```
 
 **For Linux**
 
 ```sh
 cargo build --release
-mv ./target/release/ws-cli /usr/local/bin/ws-cli
-chmod +x /usr/local/bin/ws-cli
+mv ./target/release/ws-cli /usr/local/bin/ws
+chmod +x /usr/local/bin/ws
 ```
 
 **For Windows**
@@ -51,7 +52,7 @@ chmod +x /usr/local/bin/ws-cli
 cargo build --release
 
 # Replace 'YourUsername' with your actual username
-Move-Item .\target\release\ws-cli.exe C:\Users\YourUsername\bin\ws-cli.exe
+Move-Item .\target\release\ws-cli.exe C:\Users\YourUsername\bin\ws.exe
 
 # Again, replace 'YourUsername' with your actual username
 $env:Path += ";C:\Users\YourUsername\bin"
@@ -64,7 +65,7 @@ $env:Path += ";C:\Users\YourUsername\bin"
 ```sh
 mkdir workspace
 cd workspace
-ws-cli init
+ws init
 ```
 
 2. Create Server Template
@@ -78,7 +79,7 @@ cargo generate --git codeitlikemiley/server_template --name server
 
 ```sh
 mkdir services
-ws-cli add auth
+ws add auth
 cd services
 cargo generate --git codeitlikemiley/services_template --name auth
 ```
@@ -86,11 +87,11 @@ cargo generate --git codeitlikemiley/services_template --name auth
 > CLI Example Usage
 
 ```sh
-ws-cli
+ws
 
 Manage workspace for GRPC services
 
-Usage: ws-cli <COMMAND>
+Usage: ws <COMMAND>
 
 Commands:
   init    Initializes a new workspace
