@@ -1,6 +1,6 @@
 # A CLI tool to Manage GRPC Services Workspace
 
-[![Release](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml/badge.svg?branch=main)](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml)
+[![Release](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml)
 
 Note: This is an additional tooling to help you be productive building GRPC Server with Rust
 
