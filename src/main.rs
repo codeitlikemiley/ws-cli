@@ -4,7 +4,7 @@ use std::error::Error;
 use toml_edit::Document;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let matches = Command::new("ws")
+    let matches = Command::new("ws-cli")
         .version("0.1.0")
         .author("Uriah <codeitlikemiley@gmail.com>")
         .about("Manage workspace for GRPC services")

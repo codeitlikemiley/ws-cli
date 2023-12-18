@@ -8,14 +8,13 @@ USER_HOME=$(eval echo ~$REAL_USER)
 
 # Check if the ~/.local/bin directory exists, if not, create it
 if [ ! -d "$USER_HOME/.local/bin" ]; then
-    mkdir -p "$USER_HOME/.local/bin"
+	mkdir -p "$USER_HOME/.local/bin"
 fi
 
 # delete the old symlink if it exists
 if [ -L "$USER_HOME/.local/bin/ws" ]; then
-    rm "$USER_HOME/.local/bin/ws"
+	rm "$USER_HOME/.local/bin/ws"
 fi
 
-
 # Create the symlink in ~/.local/bin
-ln -s "/Applications/ws.app/Contents/MacOS/ws" "$USER_HOME/.local/bin/ws"
+ln -s "/Applications/ws-cli.app/Contents/MacOS/ws-cli" "$USER_HOME/.local/bin/ws"
