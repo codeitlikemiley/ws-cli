@@ -1,4 +1,4 @@
-# A CLI tool to Manage GRPC Services Workspace
+# A CLI tool (ws-cli) to Manage GRPC Services Workspace
 
 [![Release](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/workspacer/actions/workflows/rust_build.yml)
 
@@ -20,8 +20,6 @@ or Install via Cargo
 cargo install ws-cli
 ```
 
-Note: if you install via cargo , the command you will use is `ws-cli` instead of `ws`
-
 
 2. Build it from source
 
@@ -29,8 +27,8 @@ Note: if you install via cargo , the command you will use is `ws-cli` instead of
 Clone
 
 ```sh
-git clone htps://github.com/codeitlikemiley/workspacer.git ws
-cd ws
+git clone htps://github.com/codeitlikemiley/workspacer.git ws-cli
+cd ws-cli
 ```
 
 **For MacOS**
@@ -43,8 +41,8 @@ cd ws
 
 ```sh
 cargo build --release
-mv ./target/release/ws /usr/local/bin/ws
-chmod +x /usr/local/bin/ws
+mv ./target/release/ws-cli /usr/local/bin/ws-cli
+chmod +x /usr/local/bin/ws-cli
 ```
 
 **For Windows**
@@ -53,7 +51,7 @@ chmod +x /usr/local/bin/ws
 cargo build --release
 
 # Replace 'YourUsername' with your actual username
-Move-Item .\target\release\ws.exe C:\Users\YourUsername\bin\ws.exe
+Move-Item .\target\release\ws-cli.exe C:\Users\YourUsername\bin\ws-cli.exe
 
 # Again, replace 'YourUsername' with your actual username
 $env:Path += ";C:\Users\YourUsername\bin"
@@ -66,7 +64,7 @@ $env:Path += ";C:\Users\YourUsername\bin"
 ```sh
 mkdir workspace
 cd workspace
-ws init
+ws-cli init
 ```
 
 2. Create Server Template
@@ -80,7 +78,7 @@ cargo generate --git codeitlikemiley/server_template --name server
 
 ```sh
 mkdir services
-ws add auth
+ws-cli add auth
 cd services
 cargo generate --git codeitlikemiley/services_template --name auth
 ```
@@ -88,11 +86,11 @@ cargo generate --git codeitlikemiley/services_template --name auth
 > CLI Example Usage
 
 ```sh
-ws
+ws-cli
 
 Manage workspace for GRPC services
 
-Usage: ws <COMMAND>
+Usage: ws-cli <COMMAND>
 
 Commands:
   init    Initializes a new workspace
