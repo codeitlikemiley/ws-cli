@@ -1,12 +1,11 @@
 [package]
-name = "ws"
+name = "ws-cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["Uriah <codeitlikemiley@gmail.com>"]
 description = "Manage your workspace with ease"
 readme = "README.md"
 license = "MIT"
-license-file = "LICENSE"
 keywords = ["workspace", "cli", "cargo"]
 categories = ["command-line-utilities", "development-tools::cargo-plugins"]
 
