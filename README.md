@@ -14,49 +14,13 @@ Note: on MacOS you might need to go to System Preferences > Security & Privacy >
 
 Note: on Windows you might need to Add the command to ENV PATH
 
-or Install via Cargo
+
+2. Install via Cargo , by default it would install both `ws` and `ws-cli` command, the command below would only install `ws` command
 
 ```sh
-cargo install ws-cli
+cargo install ws-cli --bin ws
 ```
 
-Note: if you dont like typing ws-cli you can alias it to ws
-
-2. Build it from source
-
-
-Clone
-
-```sh
-git clone htps://github.com/codeitlikemiley/ws-cli.git ws
-cd ws
-```
-
-**For MacOS**
-```sh
-./provision.sh
-# you can use ws command instead of ws-cli (longer)
-```
-
-**For Linux**
-
-```sh
-cargo build --release
-mv ./target/release/ws-cli /usr/local/bin/ws
-chmod +x /usr/local/bin/ws
-```
-
-**For Windows**
-
-```powershell
-cargo build --release
-
-# Replace 'YourUsername' with your actual username
-Move-Item .\target\release\ws-cli.exe C:\Users\YourUsername\bin\ws.exe
-
-# Again, replace 'YourUsername' with your actual username
-$env:Path += ";C:\Users\YourUsername\bin"
-```
 
 ## Developer Workflow
 
