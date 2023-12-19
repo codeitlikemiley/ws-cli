@@ -9,6 +9,16 @@ license = "MIT"
 keywords = ["workspace", "cli", "cargo"]
 categories = ["command-line-utilities", "development-tools::cargo-plugins"]
 
+# use in Github workflow `release`
+[[bin]]
+name = "ws"
+path = "src/main.rs"
+
+# Used when Bunding for OSX
+[[bin]]
+name = "ws-cli"
+path = "src/main.rs"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,15 +26,16 @@ categories = ["command-line-utilities", "development-tools::cargo-plugins"]
 clap = { version = "4.4.11", features = ["cargo", "derive", "string"] }
 toml_edit = "0.21.0"
 
+# Used when Bunding for OSX
 [package.metadata.bundle]
-name = "ws-cli"                                                              # The name of your application
-identifier = "com.codeitlikemiley.ws-cli"                                    # The bundle identifier of your application
+name = "ws"                                                              # The name of your application
+identifier = "com.codeitlikemiley.ws"                                    # The bundle identifier of your application
 copyright = "Copyright (c) codeitlikemiley 2023. All rights reserved."
 category = "Developer Tool"
 short_description = "A Workspace CLI for managing GRPC Server Workspace"
 long_description = "A Workspace CLI for managing GRPC Server Workspace"
 version = "0.1.0"                                                        # Version of your application
-osx_url_schemes = ["com.codeitlikemiley.ws-cli"]
+osx_url_schemes = ["com.codeitlikemiley.ws"]
 script = "scripts/postinstall"                                           # Path to your postinstall script
 
 [profile.release]
