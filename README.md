@@ -1,4 +1,4 @@
-# A CLI tool (ws-cli) to Rust Workspace
+# A CLI tool (ws-cli) to Manager Rust Workspace
 
 [![Release](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml)
 
