@@ -5,7 +5,7 @@ use toml_edit::DocumentMut;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let matches = Command::new("ws-cli")
-        .version("0.1.2")
+        .version("0.1.3")
         .author("Uriah <codeitlikemiley@gmail.com>")
         .about("Manage Rust workspace")
         .subcommand_required(true) // Require a subcommand

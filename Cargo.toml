@@ -1,6 +1,6 @@
 [package]
 name = "ws-cli"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 authors = ["Uriah <codeitlikemiley@gmail.com>"]
 description = "Manage your workspace with ease"
@@ -34,7 +34,7 @@ copyright = "Copyright (c) codeitlikemiley 2023. All rights reserved."
 category = "Developer Tool"
 short_description = "A Workspace CLI for managing GRPC Server Workspace"
 long_description = "A Workspace CLI for managing GRPC Server Workspace"
-version = "0.1.2"                                                        # Version of your application
+version = "0.1.3"                                                        # Version of your application
 osx_url_schemes = ["com.codeitlikemiley.ws"]
 script = "scripts/postinstall"                                           # Path to your postinstall script
 
