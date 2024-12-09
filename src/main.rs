@@ -1,31 +1,37 @@
-use clap::{Command, Arg};
-use std::fs;
+use clap::{Arg, Command};
 use std::error::Error;
-use toml_edit::Document;
+use std::fs;
+use toml_edit::DocumentMut;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let matches = Command::new("ws-cli")
-        .version("0.1.0")
+        .version("0.1.2")
         .author("Uriah <codeitlikemiley@gmail.com>")
-        .about("Manage workspace for GRPC services")
-        .subcommand_required(true)  // Require a subcommand
+        .about("Manage Rust workspace")
+        .subcommand_required(true) // Require a subcommand
         .arg_required_else_help(true) // Show help if no subcommand is provided
-        .subcommand(Command::new("init")
-            .about("Initializes a new workspace"))
-        .subcommand(Command::new("add")
-            .about("Adds a member to the workspace")
-            .arg(Arg::new("member")
-                .help("The member to add")
-                .required(true)
-                .index(1)))
-        .subcommand(Command::new("remove")
-            .about("Removes a member from the workspace")
-            .arg(Arg::new("member")
-                .help("The member to remove")
-                .required(true)
-                .index(1)))
-        .subcommand(Command::new("ls")
-            .about("Lists members of the workspace"))
+        .subcommand(Command::new("init").about("Initializes a new workspace"))
+        .subcommand(
+            Command::new("add")
+                .about("Adds a member to the workspace")
+                .arg(
+                    Arg::new("member")
+                        .help("The member to add")
+                        .required(true)
+                        .index(1),
+                ),
+        )
+        .subcommand(
+            Command::new("rm")
+                .about("Removes a member from the workspace")
+                .arg(
+                    Arg::new("member")
+                        .help("The member to remove")
+                        .required(true)
+                        .index(1),
+                ),
+        )
+        .subcommand(Command::new("ls").about("Lists members of the workspace"))
         .get_matches();
 
     match matches.subcommand() {
@@ -33,19 +39,19 @@ fn main() -> Result<(), Box<dyn Error>> {
         Some(("add", sub_m)) => {
             let member = sub_m.get_one::<String>("member").unwrap();
             add_member_to_workspace(member)
-        },
-        Some(("remove", sub_m)) => {
+        }
+        Some(("rm", sub_m)) => {
             let member = sub_m.get_one::<String>("member").unwrap();
             remove_member_from_workspace(member)
-        },
+        }
         Some(("ls", _)) => list_members(),
-        _ => Ok(())
+        _ => Ok(()),
     }
 }
 
 fn list_members() -> Result<(), Box<dyn Error>> {
     let content = fs::read_to_string("Cargo.toml")?;
-    let doc = content.parse::<Document>()?;
+    let doc = content.parse::<DocumentMut>()?;
 
     let members = doc["workspace"]["members"]
         .as_array()
@@ -59,13 +65,10 @@ fn list_members() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
 fn init_workspace() -> Result<(), Box<dyn Error>> {
     let content = r#"[workspace]
 resolver = "2"
-members = [
-    "server",
-]
+members = []
 "#;
     fs::write("Cargo.toml", content)?;
     println!("Initialized new workspace");
@@ -81,7 +84,7 @@ fn add_member_to_workspace(member: &str) -> Result<(), Box<dyn Error>> {
         fs::read_to_string("Cargo.toml")?
     };
 
-    let mut doc = content.parse::<Document>()?;
+    let mut doc = content.parse::<DocumentMut>()?;
 
     let members = doc["workspace"]["members"]
         .as_array_mut()
@@ -98,7 +101,7 @@ fn add_member_to_workspace(member: &str) -> Result<(), Box<dyn Error>> {
 
 fn remove_member_from_workspace(member: &str) -> Result<(), Box<dyn Error>> {
     let content = fs::read_to_string("Cargo.toml")?;
-    let mut doc = content.parse::<Document>()?;
+    let mut doc = content.parse::<DocumentMut>()?;
 
     let members = doc["workspace"]["members"]
         .as_array_mut()

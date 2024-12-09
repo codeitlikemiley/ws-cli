@@ -17,4 +17,4 @@ if [ -L "$USER_HOME/.local/bin/ws" ]; then
 fi
 
 # Create the symlink in ~/.local/bin
-ln -s "/Applications/ws.app/Contents/MacOS/ws-cli" "$USER_HOME/.local/bin/ws"
+ln -s "/Applications/ws.app/Contents/MacOS/ws" "$USER_HOME/.local/bin/ws"
