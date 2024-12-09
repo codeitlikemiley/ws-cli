@@ -1,4 +1,4 @@
-# A CLI tool (ws-cli) to Manage GRPC Services Workspace
+# A CLI tool (ws-cli) to Rust Workspace
 
 [![Release](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml/badge.svg)](https://github.com/codeitlikemiley/ws-cli/actions/workflows/rust_build.yml)
 
@@ -32,20 +32,12 @@ cd workspace
 ws init
 ```
 
-2. Create Server Template
+it would generate a `Cargo.toml` file with the following content
 
-```sh
-cd workspace
-cargo generate --git codeitlikemiley/server_template --name server
-```
-
-3. Generate Services
-
-```sh
-mkdir services
-ws add auth
-cd services
-cargo generate --git codeitlikemiley/services_template --name auth
+```toml
+[workspace]
+resolver = "2"
+members = []
 ```
 
 > CLI Example Usage
@@ -60,7 +52,7 @@ Usage: ws <COMMAND>
 Commands:
   init    Initializes a new workspace
   add     Adds a member to the workspace
-  remove  Removes a member from the workspace
+  rm      Removes a member from the workspace
   ls      Lists members of the workspace
   help    Print this message or the help of the given subcommand(s)
 
